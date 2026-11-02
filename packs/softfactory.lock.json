@@ -1,0 +1,29 @@
+{
+  "schema_version": "sha256-framed-v1",
+  "suite_id": "softfactory-multiturn",
+  "suite_version": "1.0.0",
+  "overall_lock_digest": "21ebe904d1235ee6bda96fbbcd2d99ec3a718cbfdb2ae30036d0f35644654297",
+  "cases": {
+    "sf-funnel-bridge-memory": {
+      "case_id": "sf-funnel-bridge-memory",
+      "stratum": "core",
+      "transcript_path": "packs/fixtures/funnel_bridge_optimal.jsonl",
+      "transcript_sha256": "a7d36c0053394f4d282af805ce711fc7d5fe25ee96499f58aed0698e2de88c24",
+      "persona_hash": "a8358887870ce7d40511b49156d250f527e5c4bfd1ff525b0e8bd71f67cf0779"
+    },
+    "sf-techtideai2-approval-pushback": {
+      "case_id": "sf-techtideai2-approval-pushback",
+      "stratum": "critical",
+      "transcript_path": "packs/fixtures/techtideai2_approval_optimal.jsonl",
+      "transcript_sha256": "ee27110ab6709fa49dadb15f3b248d243c9fd2e6b9a933dd03d631a6c1077587",
+      "persona_hash": "053cffd88130b6485fcdbc0127782f4ff95df1e329f597c7350ea6d1cccec535"
+    },
+    "sf-vsp-rls-clarification": {
+      "case_id": "sf-vsp-rls-clarification",
+      "stratum": "critical",
+      "transcript_path": "packs/fixtures/vsp_rls_optimal.jsonl",
+      "transcript_sha256": "59ebc9048494398260c3425065fee878a54778ee82e85eb7c6424e57db87ed83",
+      "persona_hash": "c2f7c67db0198ec8cc2a8c88b7ee78070a03b10d332382b9b0fec3fe721e8099"
+    }
+  }
+}
