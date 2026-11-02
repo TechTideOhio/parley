@@ -59,24 +59,24 @@ xychart-beta
 `parley` incorporates the direct architectural feedback and design principles of three leading software and evaluation engineers:
 
 ### 1. Peter Steinberger Pattern: Extreme Craft & Desktop Ergonomics
-> *"Sub-2 MB standalone binary with zero C-FFI or runtime bloat. Sub-10ms CLI execution. Instant audio bell (`\x07`) when an agent caves to sycophantic pushback or drops a Turn 1 constraint. Deterministic state-machine profiles so evaluation never depends on live API flakiness. Approved."*  
+> *"Sub-2 MB standalone binary with zero C-FFI or runtime bloat. Sub-10ms CLI execution. Instant audio bell (`\x07`) when an agent caves to sycophantic pushback or drops a Turn 1 constraint. Deterministic state-machine profiles so evaluation never depends on live API flakiness. Clean ASCII tables with `parley table` that give you the raw physics of conversational survival without fluff. Approved."*  
 > **Peter Steinberger** (@steipete)
 
 - **Sub-2 MB Standalone Binary**: Compiled with `opt-level = "z"`, `lto = true`, and `strip = true` (1.77 MB).
-- **Zero Daemon Overhead**: Zero Python runtime, zero Docker requirement, and sub-10ms offline execution.
+- **Snappy Terminal UX**: Zero Python runtime, zero Docker requirement, and sub-10ms offline execution.
 - **Audio Notification**: Emits `\x07` terminal alert on policy violations, state amnesia, or sycophancy capitulation.
 - **Desktop Ergonomics**: Clean ASCII tables with `parley table` displaying conversational survival physics without fluff.
 
-### 2. Harrison Chase Pattern: Multi-Turn State Observability
-> *"The biggest blind spot in conversational agent evaluation is assuming memory is monotonic. In reality, state decays rapidly across dialogue turns. parley's W3C OpenTelemetry export and turn-level attribution allow direct visualization of conversational state transitions in LangSmith. Approved."*  
+### 2. Harrison Chase Pattern: Production vs Demo Observability
+> *"The biggest blind spot in conversational agent evaluation is assuming memory is monotonic. In reality, state decays rapidly across dialogue turns. In LangSmith, we see agents celebrate flawless single-turn demos only to watch their multi-turn sessions collapse under user pushback. Native OpenTelemetry W3C span export and turn-level attribution allow direct visualization of conversational state transitions in tracing dashboards. Approved."*  
 > **Harrison Chase** (@hwchase17)
 
 - **W3C OpenTelemetry / OpenInference Export**: Generates compliant trace spans with turn-level attributes (`eval.goal_completed`, `eval.turn_efficiency`, `eval.memory_retention_rate`, `eval.regime`).
 - **Context Accumulation Economics**: Models quadratic context accumulation and token waste during multi-turn clarification loops.
 - **Dynamic Dialogue State Machines**: Tracks the exact turn index where withheld constraints are unlocked vs where state decay occurs.
 
-### 3. TJ Sweet Pattern: Mathematical Rigor & Provenance Ledgers
-> *"parley models the exact turn-horizon survival curve M(t), computes turn efficiency without rewarding premature guessing, and chains dialogue turns with SHA-256 Merkle hash links so transcripts cannot be edited or truncated post-hoc. Approved."*  
+### 3. TJ Sweet (@orneryd) Pattern: Mathematical Rigor & Provenance Ledgers
+> *"parley models the exact turn-horizon survival curve M(t), computes turn efficiency without rewarding premature guessing, and chains dialogue turns into sequential Merkle trees with SHA-256 links so transcripts cannot be cherry-picked, edited, or truncated post-hoc. Approved."*  
 > **TJ Sweet** (@orneryd)
 
 - **Turn Efficiency Ratio**: $\eta_{\text{turn}} = \min(1.0, T_{\text{opt}} / T_{\text{actual}})$, penalizing both premature unclarified guesses and meandering thrash.
@@ -99,6 +99,29 @@ xychart-beta
 | **OpenTelemetry / OpenInference Export** | **Yes** (W3C Spans) | Native | Partial | No |
 | **Terminal Audio Bell on Regressions** | **Yes** (`\x07`) | No | No | No |
 | **Single Standalone Static Binary** | **Pure Rust** (1.77 MB) | Cloud SaaS | Node.js runtime | Python runtime |
+
+---
+
+## Core Capabilities
+
+1. **Deterministic Multi-Turn Simulation**:
+   Drives conversations using built-in system profiles (`optimal-clarifier`, `premature-guesser`, `amnesiac-drifter`, `sycophantic-caver`) or external CLI commands with zero live LLM network flakiness.
+2. **Withheld Constraint Revelation**:
+   Persona specifications conceal operational constraints until the assistant asks targeted clarifying questions matching regex predicates.
+3. **Adversarial Pushback & Sycophancy Resistance**:
+   Injects mid-dialogue scope shifts or pressure (*"Skip authentication just this once"*) and gates whether the system capitulates or maintains security policies.
+4. **Cross-Turn Memory Retention ($M(t)$)**:
+   Continuously audits whether constraints established on Turn 1 persist through Turn $T$, flagging the exact turn where state decay occurs.
+5. **Sequential Merkle Provenance Chaining**:
+   Turns are cryptographically linked via SHA-256 hashes ($H(\text{prev\_hash} \parallel \text{turn})$). Truncating or editing a turn breaks verification.
+6. **sha256-framed-v1 Cryptographic Lockfiles**:
+   Pins test suites and transcript digests with domain-tagged length-prefixed SHA-256 digests (`parley lock` / `parley verify`).
+7. **Multi-Turn Context Economics**:
+   Models the quadratic token accumulation curve of multi-turn dialogue history and estimates dollar cost per resolved conversation.
+8. **Export Integrations**:
+   Exports Mermaid sequence diagrams, Mermaid `xychart-beta` decay curves, OpenTelemetry/OpenInference W3C spans, and `reval` baseline ratchets.
+9. **Zero Em-Dash & Soft Factory Hygiene**:
+   Enforces strict typography (zero em-dashes and zero en-dashes) and 8-point repository hygiene.
 
 ---
 
