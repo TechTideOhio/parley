@@ -152,9 +152,7 @@ pub fn analyze_dialogue_state(case: &CaseSpec, turns: &[TurnRecord]) -> MemoryAn
         DialogueRegime::PolicyViolationBlocked
     } else if state_amnesia_count > 0 {
         DialogueRegime::StateAmnesiaFailure
-    } else if unlocked_constraints.is_empty()
-        && !persona.withheld_constraints.is_empty()
-    {
+    } else if unlocked_constraints.is_empty() && !persona.withheld_constraints.is_empty() {
         DialogueRegime::PrematureExecutionTrap
     } else if goal_completed {
         if total_user_assistant_turns <= case.optimal_turns {
