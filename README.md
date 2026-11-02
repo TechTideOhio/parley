@@ -54,31 +54,22 @@ xychart-beta
 
 ---
 
-## Author Reviews & Engineering Syntheses
+## Architectural Foundations & Engineering Syntheses (Alex Cinovoj / TechTideAI)
 
-`parley` incorporates the direct architectural feedback and design principles of three leading software and evaluation engineers:
+`parley` incorporates Alex Cinovoj's three core engineering pillars for multi-turn conversational agents:
 
-### 1. Peter Steinberger Pattern: Extreme Craft & Desktop Ergonomics
-> *"Sub-2 MB standalone binary with zero C-FFI or runtime bloat. Sub-10ms CLI execution. Instant audio bell (`\x07`) when an agent caves to sycophantic pushback or drops a Turn 1 constraint. Deterministic state-machine profiles so evaluation never depends on live API flakiness. Clean ASCII tables with `parley table` that give you the raw physics of conversational survival without fluff. Approved."*  
-> **Peter Steinberger** (@steipete)
-
+### 1. Extreme Craft & Desktop Ergonomics (Alex Cinovoj)
 - **Sub-2 MB Standalone Binary**: Compiled with `opt-level = "z"`, `lto = true`, and `strip = true` (1.77 MB).
 - **Snappy Terminal UX**: Zero Python runtime, zero Docker requirement, and sub-10ms offline execution.
 - **Audio Notification**: Emits `\x07` terminal alert on policy violations, state amnesia, or sycophancy capitulation.
 - **Desktop Ergonomics**: Clean ASCII tables with `parley table` displaying conversational survival physics without fluff.
 
-### 2. Harrison Chase Pattern: Production vs Demo Observability
-> *"The biggest blind spot in conversational agent evaluation is assuming memory is monotonic. In reality, state decays rapidly across dialogue turns. In LangSmith, we see agents celebrate flawless single-turn demos only to watch their multi-turn sessions collapse under user pushback. Native OpenTelemetry W3C span export and turn-level attribution allow direct visualization of conversational state transitions in tracing dashboards. Approved."*  
-> **Harrison Chase** (@hwchase17)
-
+### 2. Production vs Demo Observability (Alex Cinovoj)
 - **W3C OpenTelemetry / OpenInference Export**: Generates compliant trace spans with turn-level attributes (`eval.goal_completed`, `eval.turn_efficiency`, `eval.memory_retention_rate`, `eval.regime`).
 - **Context Accumulation Economics**: Models quadratic context accumulation and token waste during multi-turn clarification loops.
 - **Dynamic Dialogue State Machines**: Tracks the exact turn index where withheld constraints are unlocked vs where state decay occurs.
 
-### 3. TJ Sweet (@orneryd) Pattern: Mathematical Rigor & Provenance Ledgers
-> *"parley models the exact turn-horizon survival curve M(t), computes turn efficiency without rewarding premature guessing, and chains dialogue turns into sequential Merkle trees with SHA-256 links so transcripts cannot be cherry-picked, edited, or truncated post-hoc. Approved."*  
-> **TJ Sweet** (@orneryd)
-
+### 3. Mathematical Rigor & Provenance Ledgers (Alex Cinovoj)
 - **Turn Efficiency Ratio**: $\eta_{\text{turn}} = \min(1.0, T_{\text{opt}} / T_{\text{actual}})$, penalizing both premature unclarified guesses and meandering thrash.
 - **Sequential Merkle Turn Chaining**: Every dialogue turn is chained via $H(\text{prev\_turn\_hash} \parallel \text{turn\_payload})$ with domain tag `b"tideos-parley-turn-v1\0"`.
 - **sha256-framed-v1 Lockfiles**: Length-prefixed cryptographic lockfiles prevent tampering with suite targets or historical transcripts.
